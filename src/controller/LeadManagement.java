@@ -29,7 +29,10 @@ public class LeadManagement {
 		Date dob = new SimpleDateFormat(Utility.DATE_FORMAT).parse(dobstr);
 		System.out.println("Please enter your gender: ");
 		String gender = scanner.nextLine();
-		boolean valueGender = Boolean.parseBoolean(gender);
+		boolean valueGender = false;
+		if (gender.equalsIgnoreCase("male") || gender.equalsIgnoreCase("true")){
+			valueGender = true;
+		}
 		System.out.println("Please enter your phone number: ");
 		String phone = scanner.nextLine();
 		System.out.println("Please enter your email: ");
@@ -37,7 +40,10 @@ public class LeadManagement {
 		System.out.println("Please enter your address: ");
 		String address = scanner.nextLine();
 		Lead lead = new Lead(name, dob, valueGender, phone, email, address);
-		lead.setId(Utility.generateID(getLeads().size()));
+		//lead_003
+		int lastId = Integer.parseInt(leads.get(leads.size() - 1).getId().substring(4,7)) +1;
+
+		lead.setId(Utility.generateID(lastId));
 		this.getLeads().add(lead);
 		leadRepository.write(getLeads());
 	}

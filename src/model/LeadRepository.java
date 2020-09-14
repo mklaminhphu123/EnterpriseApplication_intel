@@ -3,6 +3,7 @@ package model;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.net.URL;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -18,7 +19,9 @@ public class LeadRepository implements Repository{
 	}
 	
 	public Scanner connect() throws FileNotFoundException {
-		File file = new File(filename);
+		String path = getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
+
+		File file = new File(path + "\\" + filename);
 		Scanner scanner = new Scanner(file);
 		return scanner;
 	}

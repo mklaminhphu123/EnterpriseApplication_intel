@@ -91,15 +91,27 @@ public class CRMProgram {
 		switch (choose) {
 			case 1: {				
 				Map<String, String> maps = reportingManagement.reportLeadByAge(leadManagement.getLeads());
-				String head = "";
-				String row = "";
+
+				String leftAlignFormat = "| %-18s | %-4s |%n";
+
+				System.out.format("+--------------------+------+%n");
+				System.out.format("| Age range          | Total|%n");
+				System.out.format("+--------------------+------+%n");
 				for(Entry<String, String> map : maps.entrySet()) {
-					head += "\t" + map.getKey();
-					row += "\t" + map.getValue();
+					System.out.format(leftAlignFormat, map.getKey(), map.getValue().toString());
 				}
-				
-				System.out.println(head);
-				System.out.println(row);
+
+				System.out.format("+--------------------+------+%n");
+
+//				String head = "";
+//				String row = "";
+//				for(Entry<String, String> map : maps.entrySet()) {
+//					head += "\t" + map.getKey();
+//					row += "\t" + map.getValue();
+//				}
+//
+//				System.out.println(head);
+//				System.out.println(row);
 				break;
 			}
 			case 2:

@@ -3,12 +3,7 @@ package controller;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Dictionary;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import model.Lead;
 
@@ -22,7 +17,6 @@ public class ReportingManagement {
 	    int from20To60 = 0;
 	    int over60 = 0;
 	    
-	    
 		for(Lead lead: leads) {
 			int age = now.getYear() - lead.getDob().getYear();
 			if(age <= 10) {
@@ -35,7 +29,7 @@ public class ReportingManagement {
 				over60 ++;
 			}
 		}
-		Map<String, String> map = new HashMap<String, String>();
+		Map<String, String> map = new TreeMap<String, String>();
 		map.put("0-10  (years old)", from0To10 + "");
 		map.put("10-20 (yrs old)", from10To20 + "");
 		map.put("20-60 (yrs old)", from20To60 + "");
