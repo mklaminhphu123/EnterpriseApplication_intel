@@ -41,29 +41,28 @@ public class InteractionRepository implements Repository{
 		while(scanner.hasNext()) {
 			String line = scanner.nextLine();
 			String[] temp  = line.split(",");
-//			try {
-//				Interaction interaction = new Interaction(temp[0], temp[1],new SimpleDateFormat(Utility.DATE_FORMAT).parse(temp[2]),
-//						Boolean.parseBoolean(temp[3]), temp[4], temp[5], temp[6]);
-//				result.add(interaction);
-//			} catch (ParseException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
+			try {
+				Interaction interaction = new Interaction(temp[0],new SimpleDateFormat(Utility.DATE_FORMAT).parse(temp[1]),temp[2],temp[3],temp[4],temp[5]);
+				result.add(interaction);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return null;
 	}
 	
-	public void write(Interaction obj) throws FileNotFoundException {
+	public void write(ArrayList<Interaction> interactions) throws FileNotFoundException {
 		// TODO Auto-generated method stub
 		File file = new File(filename);
 		PrintWriter printWriter = new PrintWriter(file);
 		DateFormat dateFormat = new SimpleDateFormat(Utility.DATE_FORMAT);
 
-//		for(Interaction interaction: interactions) {
-//
-//			String tempToWrite = interaction.getIdIn() + "," + interaction.getDateOfInteraction() + "," +  interaction.getLeadID() + "," + interaction.getContact() + "," + interaction.getAddress() + "\n";
-//			printWriter.print(tempToWrite);
-//		}
+		for(Interaction interaction: interactions) {
+
+			String tempToWrite = interaction.getIdIn() + "," + dateFormat.format(interaction.getDateOfInteraction()) + "," +  interaction.getLeadID() + "," + interaction.getContact() + "," + interaction.getAddress() + "\n";
+			printWriter.print(tempToWrite);
+		}
 		printWriter.close();
 
 	}
