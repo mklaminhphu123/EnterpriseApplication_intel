@@ -14,7 +14,7 @@ public class CRMProgram {
 	private static Scanner scanner = new Scanner(System.in);
 	private static LeadManagement leadManagement = new LeadManagement();
 	private static ReportingManagement reportingManagement = new ReportingManagement();
-	
+	//main function
 	public static void main(String[] args) throws FileNotFoundException, ParseException {
 		String cont = "Y";
 		System.out.println("***Welcome to our Customer Relationship Management***");
