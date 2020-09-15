@@ -10,10 +10,10 @@ public class Interaction
 	private String leadID;
 	private String contact;
 	private String address;
-	private String potential;
+	private Potential potential;
 	
 	//Constructor
-	public Interaction(String idIn, Date dateOfInteraction, String leadID, String contact, String address, String potential) {
+	public Interaction(String idIn, Date dateOfInteraction, String leadID, String contact, String address, Potential potential) {
 		this.idIn = idIn;
 		this.dateOfInteraction = dateOfInteraction;
 		this.leadID = leadID;
@@ -22,7 +22,7 @@ public class Interaction
 		this.potential = potential;
 	}
 
-	public Interaction(Date dateOfInteraction, String leadID, String contact, String address, String potential) {
+	public Interaction(Date dateOfInteraction, String leadID, String contact, String address, Potential potential) {
 		this.dateOfInteraction = dateOfInteraction;
 		this.leadID = leadID;
 		this.contact = contact;
@@ -67,8 +67,8 @@ public class Interaction
 		this.contact = contact;
 	}
 
-	public String getPotential() { return potential; }
-	public void setPotential(String potential) { this.potential = potential; }
+	public Potential getPotential() { return potential; }
+	public void setPotential(Potential potential) { this.potential = potential; }
 
 	public String getAddress() { return address; }
 	public void setAddress(String address) { this.address = address; }

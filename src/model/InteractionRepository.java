@@ -42,7 +42,9 @@ public class InteractionRepository implements Repository{
 			String line = scanner.nextLine();
 			String[] temp  = line.split(",");
 			try {
-				Interaction interaction = new Interaction(temp[0],new SimpleDateFormat(Utility.DATE_FORMAT).parse(temp[1]),temp[2],temp[3],temp[4],temp[5]);
+				Interaction interaction = new Interaction(temp[0],
+						new SimpleDateFormat(Utility.DATE_FORMAT).parse(temp[1]),
+						temp[2],temp[3],temp[4],Potential.valueOf(temp[5]));
 				result.add(interaction);
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
@@ -59,9 +61,11 @@ public class InteractionRepository implements Repository{
 		DateFormat dateFormat = new SimpleDateFormat(Utility.DATE_FORMAT);
 
 		for(Interaction interaction: interactions) {
-
-			String tempToWrite = interaction.getIdIn() + "," + dateFormat.format(interaction.getDateOfInteraction()) + "," +  interaction.getLeadID() + "," + interaction.getContact() + "," + interaction.getAddress() + "\n";
-			printWriter.print(tempToWrite);
+			String tempToWrite = interaction.getIdIn() + "," +
+					dateFormat.format(interaction.getDateOfInteraction()) + "," +
+					interaction.getLeadID() + "," + interaction.getContact() + "," +
+					interaction.getAddress();
+			printWriter.println(tempToWrite);
 		}
 		printWriter.close();
 

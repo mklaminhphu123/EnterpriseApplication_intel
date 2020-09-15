@@ -57,9 +57,10 @@ public class LeadRepository implements Repository{
           
 		for(Lead lead: leads) {
 			
-			String tempToWrite = lead.getId() + "," +lead.getName() + "," +  dateFormat.format(lead.getDob()) + "," + lead.isGender() + "," + lead.getPhone() +
-					"," + lead.getEmail() + "," + lead.getAddress() + "\n";
-			printWriter.print(tempToWrite);
+			String tempToWrite = lead.getId() + "," +lead.getName() + "," +
+					dateFormat.format(lead.getDob()) + "," + lead.isGender() + "," + lead.getPhone() +
+					"," + lead.getEmail() + "," + lead.getAddress();
+			printWriter.println(tempToWrite);
 		}
 		printWriter.close();
 	}
