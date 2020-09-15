@@ -5,39 +5,36 @@ import java.util.Date;
 public class Interaction
 {
 	//Data Field
-	private String idIn;
+	private String id;
 	private Date dateOfInteraction;
 	private String leadID;
-	private String contact;
-	private String address;
+	private ContactMethod contact;
 	private Potential potential;
 	
 	//Constructor
-	public Interaction(String idIn, Date dateOfInteraction, String leadID, String contact, String address, Potential potential) {
-		this.idIn = idIn;
+	public Interaction(String id, Date dateOfInteraction, String leadID, ContactMethod contact, Potential potential) {
+		this.id = id;
 		this.dateOfInteraction = dateOfInteraction;
 		this.leadID = leadID;
 		this.contact = contact;
-		this.address = address;
 		this.potential = potential;
 	}
 
-	public Interaction(Date dateOfInteraction, String leadID, String contact, String address, Potential potential) {
+	public Interaction(Date dateOfInteraction, String leadID, ContactMethod contact, Potential potential) {
 		this.dateOfInteraction = dateOfInteraction;
 		this.leadID = leadID;
 		this.contact = contact;
-		this.address = address;
 		this.potential = potential;
 	}
 
 	//Get 'n' Set
-	public String getIdIn()
+	public String getId()
 	{
-		return idIn;
+		return id;
 	}
-	public void setIdIn(String idIn)
+	public void setId(String id)
 	{
-		this.idIn = idIn;
+		this.id = id;
 	}
 
 	public Date getDateOfInteraction()
@@ -58,11 +55,11 @@ public class Interaction
 		this.leadID = leadID;
 	}
 
-	public String getContact()
+	public ContactMethod getContact()
 	{
 		return contact;
 	}
-	public void setContact(String contact)
+	public void setContact(ContactMethod contact)
 	{
 		this.contact = contact;
 	}
@@ -70,17 +67,14 @@ public class Interaction
 	public Potential getPotential() { return potential; }
 	public void setPotential(Potential potential) { this.potential = potential; }
 
-	public String getAddress() { return address; }
-	public void setAddress(String address) { this.address = address; }
-
 	@Override
 	public String toString()
 	{
-		return "Interaction ID: " + getIdIn() + "\n"
+		return "Interaction ID: " + getId() + "\n"
 				+ "Date of Interaction" + getDateOfInteraction() + "\n"
 				+ "Lead ID: " + getLeadID() + "\n"
 				+ "Contact by: " + getContact() + "\n"
-				+ "Potential" + getPotential() + "\n";
+				+ "Potential: " + getPotential() + "\n";
 	}
 }
 

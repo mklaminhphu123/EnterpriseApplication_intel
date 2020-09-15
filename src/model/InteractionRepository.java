@@ -22,9 +22,11 @@ public class InteractionRepository implements Repository{
 	public Scanner connect() throws FileNotFoundException
 	{
 		// TODO Auto-generated method stub
-		File file = new File(filename);
+		String path = getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
+
+		File file = new File(path + "\\" + filename);
 		Scanner scanner = new Scanner(file);
-		return null;
+		return scanner;
 	}
 
 	@Override
@@ -44,14 +46,14 @@ public class InteractionRepository implements Repository{
 			try {
 				Interaction interaction = new Interaction(temp[0],
 						new SimpleDateFormat(Utility.DATE_FORMAT).parse(temp[1]),
-						temp[2],temp[3],temp[4],Potential.valueOf(temp[5]));
+						temp[2],ContactMethod.valueOf(temp[3]),Potential.valueOf(temp[4]));
 				result.add(interaction);
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		return null;
+		return result;
 	}
 	
 	public void write(ArrayList<Interaction> interactions) throws FileNotFoundException {
@@ -61,10 +63,10 @@ public class InteractionRepository implements Repository{
 		DateFormat dateFormat = new SimpleDateFormat(Utility.DATE_FORMAT);
 
 		for(Interaction interaction: interactions) {
-			String tempToWrite = interaction.getIdIn() + "," +
+			String tempToWrite = interaction.getId() + "," +
 					dateFormat.format(interaction.getDateOfInteraction()) + "," +
-					interaction.getLeadID() + "," + interaction.getContact() + "," +
-					interaction.getAddress();
+					interaction.getLeadID() + "," + interaction.getContact() + ",'"
+					+ interaction.getPotential();
 			printWriter.println(tempToWrite);
 		}
 		printWriter.close();

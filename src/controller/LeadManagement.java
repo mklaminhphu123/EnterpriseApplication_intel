@@ -43,9 +43,13 @@ public class LeadManagement {
 		//lead_003
 		int lastId = Integer.parseInt(leads.get(leads.size() - 1).getId().substring(4,7)) +1;
 
-		lead.setId(Utility.generateID(lastId));
+		lead.setId(generateID(lastId));
 		this.getLeads().add(lead);
 		leadRepository.write(getLeads());
+	}
+	private String generateID(int size)
+	{
+		return "lead_" + String.format("%03d", size);
 	}
 	
 	public void update() throws ParseException, FileNotFoundException{

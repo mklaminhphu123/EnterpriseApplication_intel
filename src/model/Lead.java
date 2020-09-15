@@ -8,22 +8,22 @@ import java.util.Date;
 public class Lead
 {
     //Data Field
-	private String id;
-	private String name;
-	private Date dob;
-	private boolean gender;
-	private String phone;
-	private String email;
-	private String address;
-    
-    
+    private String id;
+    private String name;
+    private Date dob;
+    private boolean gender;
+    private String phone;
+    private String email;
+    private String address;
+
+
 
 
 
     //Constructor
     public Lead(String id, String name, Date dob, boolean gender, String phone, String email, String address)
     {
-    	this.setId(id);
+        this.setId(id);
         this.setName(name);
         this.setDob(dob);
         this.setGender(gender);
@@ -31,11 +31,11 @@ public class Lead
         this.setEmail(email);
         this.setAddress(address);
     }
-    
+
     public Lead(String name, Date dob, boolean gender, String phone, String email, String address)
     {
-    	//TODO: generate new id
-    	//this.id = generate ID
+        //TODO: generate new id
+        //this.id = generate ID
         this.setName(name);
         this.setDob(dob);
         this.setGender(gender);
@@ -43,76 +43,76 @@ public class Lead
         this.setEmail(email);
         this.setAddress(address);
     }
-    
+
     @Override
     public String toString() {
-    	DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");  
-    	
-    	// TODO Auto-generated method stub
-    	return "Name: " + getName() + "\n" 
-    			+ "ID: "+ getId() + "\n"
-    			+ "Date of Birth: " + dateFormat.format(getDob()) + "\n"
-    			+ "Gender: " + isGender() + "\n"
-    			+ "Phone number: "+ getPhone()  + "\n"
-    			+ "Email "+ getEmail() + "\n"
-    			+ "Address: " +  getAddress() + "\n"
-    			;
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+
+        // TODO Auto-generated method stub
+        return "Name: " + getName() + "\n"
+                + "ID: "+ getId() + "\n"
+                + "Date of Birth: " + dateFormat.format(getDob()) + "\n"
+                + "Gender: " + isGender() + "\n"
+                + "Phone number: "+ getPhone()  + "\n"
+                + "Email "+ getEmail() + "\n"
+                + "Address: " +  getAddress() + "\n"
+                ;
     }
-    
 
-	public String getId() {
-		return id;
-	}
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public Date getDob() {
-		return dob;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setDob(Date dob) {
-		this.dob = dob;
-	}
+    public Date getDob() {
+        return dob;
+    }
 
-	public boolean isGender() {
-		return gender;
-	}
+    public void setDob(Date dob) {
+        this.dob = dob;
+    }
 
-	public void setGender(boolean gender) {
-		this.gender = gender;
-	}
+    public boolean isGender() {
+        return gender;
+    }
 
-	public String getPhone() {
-		return phone;
-	}
+    public void setGender(boolean gender) {
+        this.gender = gender;
+    }
 
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
+    public String getPhone() {
+        return phone;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public String getAddress() {
-		return address;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 }

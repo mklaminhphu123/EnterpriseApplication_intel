@@ -2,7 +2,7 @@ package model;
 
 public enum Potential
 {
-	Positive,
-	Neutral,
-	Negative,
+	POSITIVE,
+	NEUTRAL,
+	NEGATIVE,
 }
