@@ -17,7 +17,9 @@ public class CRMProgram {
 	//main function
 	public static void main(String[] args) throws FileNotFoundException, ParseException {
 		String cont = "Y";
+		System.out.println("*****************************************************");
 		System.out.println("***Welcome to our Customer Relationship Management***");
+		System.out.println("*****************************************************");
 		leadManagement.read();
 		interactionManagement.read();
 		
@@ -51,7 +53,7 @@ public class CRMProgram {
 		
 		//leadManagement.add();
 	}
-	
+
 	public static void manageLead() throws FileNotFoundException, ParseException {
 		System.out.println("1. View Leads list" + "\n"+
 							"2. Add a new lead information" + "\n" +
