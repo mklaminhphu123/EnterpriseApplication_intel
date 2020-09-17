@@ -44,7 +44,7 @@ public class CRMProgram {
 				}
 			}
 			 scanner.nextLine();
-			System.out.println("Do you want to continue? Y/N");
+			System.out.println("Do you want to continue? Press Y to continue");
 			cont = scanner.nextLine();
 			
 		}while(cont.equalsIgnoreCase("Y"));
