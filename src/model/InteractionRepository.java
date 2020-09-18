@@ -32,7 +32,7 @@ public class InteractionRepository implements Repository{
 	@Override
 	public void disconnect(Scanner scanner) {
 		// TODO Auto-generated method stub
-		
+		scanner.close();
 	}
 
 	@Override
@@ -53,19 +53,22 @@ public class InteractionRepository implements Repository{
 				e.printStackTrace();
 			}
 		}
+		this.disconnect(scanner);
 		return result;
 	}
 	
 	public void write(ArrayList<Interaction> interactions) throws FileNotFoundException {
 		// TODO Auto-generated method stub
-		File file = new File(filename);
+		String path = getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
+
+		File file = new File(path + "\\" + filename);
 		PrintWriter printWriter = new PrintWriter(file);
 		DateFormat dateFormat = new SimpleDateFormat(Utility.DATE_FORMAT);
 
 		for(Interaction interaction: interactions) {
 			String tempToWrite = interaction.getId() + "," +
 					dateFormat.format(interaction.getDateOfInteraction()) + "," +
-					interaction.getLeadID() + "," + interaction.getContact() + ",'"
+					interaction.getLeadID() + "," + interaction.getContact() + ","
 					+ interaction.getPotential();
 			printWriter.println(tempToWrite);
 		}

@@ -71,7 +71,7 @@ public class Interaction
 	public String toString()
 	{
 		return "Interaction ID: " + getId() + "\n"
-				+ "Date of Interaction" + getDateOfInteraction() + "\n"
+				+ "Date of Interaction: " + getDateOfInteraction() + "\n"
 				+ "Lead ID: " + getLeadID() + "\n"
 				+ "Contact by: " + getContact() + "\n"
 				+ "Potential: " + getPotential() + "\n";

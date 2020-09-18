@@ -50,7 +50,9 @@ public class LeadRepository implements Repository{
 
 	
 	public void write(ArrayList<Lead> leads) throws FileNotFoundException {
-		File file = new File(filename);
+		String path = getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
+
+		File file = new File(path + "\\" + filename);
 		PrintWriter printWriter = new PrintWriter(file);
 		DateFormat dateFormat = new SimpleDateFormat(Utility.DATE_FORMAT);  
           

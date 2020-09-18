@@ -41,8 +41,7 @@ public class LeadManagement {
 		String address = scanner.nextLine();
 		Lead lead = new Lead(name, dob, valueGender, phone, email, address);
 		//lead_003
-		int lastId = Integer.parseInt(leads.get(leads.size() - 1).getId().substring(4,7)) +1;
-
+		int lastId = Integer.parseInt(leads.get(leads.size() - 1).getId().substring(5,8)) +1;
 		lead.setId(generateID(lastId));
 		this.getLeads().add(lead);
 		leadRepository.write(getLeads());

@@ -50,15 +50,16 @@ public class InteractionManagement
         System.out.println("3. Negative");
         targetPotential =  target.nextInt();
         Potential interactPotential = Potential.values()[targetPotential];
-        int lastId = Integer.parseInt(interactions.get(interactions.size() - 1).getId().substring(4,7)) +1;
         ZonedDateTime zdt = dateOfInteraction.atZone(ZoneId.systemDefault());
         Interaction interaction = new Interaction( Date.from(zdt.toInstant()),
                 targetLead + "",contactMethodValue,
                 interactPotential);
+        int lastId = Integer.parseInt(interactions.get(interactions.size() - 1).getId().substring(6,9)) +1;
         interaction.setId(generateId(lastId));
         this.interactions.add(interaction);
         interactionRepository.write(getInteractions());
     }
+
 
     private String generateId(int size)
     {
